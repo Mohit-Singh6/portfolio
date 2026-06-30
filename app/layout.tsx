@@ -28,11 +28,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${boldonse.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      className={`dark ${boldonse.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <GravityStarsBackground >
-        {children}
+        <GravityStarsBackground className="absolute inset-0 z-0">
+          <div className="relative z-10 flex-1 flex flex-col">
+            {children}
+          </div>
         </GravityStarsBackground >
       </body>
     </html>

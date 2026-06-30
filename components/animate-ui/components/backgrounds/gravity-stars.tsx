@@ -41,13 +41,14 @@ function GravityStarsBackground({
   starsOpacity = 0.75,
   glowIntensity = 7,
   glowAnimation = 'ease',
-  movementSpeed = 0.3,
+  movementSpeed = 0.4,
   mouseInfluence = 100,
   mouseGravity = 'attract',
   gravityStrength = 60,
   starsInteraction = false,
   starsInteractionType = 'bounce',
   className,
+  children,
   ...props
 }: GravityStarsProps) {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
@@ -352,7 +353,10 @@ function GravityStarsBackground({
       onTouchMove={(e) => handlePointerMove(e)}
       {...props}
     >
-      <canvas ref={canvasRef} className="block w-full h-full" />
+      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full pointer-events-none" />
+      <div className="relative size-full">
+        {children}
+      </div>
     </div>
   );
 }
