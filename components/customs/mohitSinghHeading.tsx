@@ -25,7 +25,7 @@ export default function MohitSinghInit() {
             />
             <SplitText
                 text="SINGH"
-                className="font-heading text-8xl md:text-6xl text-center h-22 pt-4 pl-18 ml-60"
+                className="font-heading text-8xl md:text-6xl text-center h-22 pt-2 pl-18 ml-60"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"

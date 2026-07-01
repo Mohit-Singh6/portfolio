@@ -9,8 +9,10 @@ import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
 import { IconCloudHeading } from '@/components/ui/iconCloudHeading';
 import BlackHole from '@/components/customs/blackHole';
 import {SocialOrbit} from '@/components/customs/socialOrbit';
+import EducationSection from '@/components/customs/educationSection';
 import Projects from '@/components/projectCards';
 import { ProjectsHeading } from '@/components/ui/projectsHeading';
+import EmailFooter from '@/components/customs/emailFooter';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -102,13 +104,15 @@ export default function Home() {
         <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24" id='home'>
           <SidebarNav />
           <BlackHole />
-          <SocialOrbit /> 
+          <SocialOrbit />
           <MohitSinghInit />
           <ScrollTextAnimation />
           <ProjectsHeading />
           <Projects />
           <IconCloudHeading />
           <MyTechStackGlobe />
+          <EducationSection />
+          <EmailFooter />
         </main>
       )}
     </div>

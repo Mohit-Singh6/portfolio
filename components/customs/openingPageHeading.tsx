@@ -6,7 +6,7 @@ export default function AboutMe() {
     return (
         <div className="flex min-h-screen w-full items-center justify-center bg-[#111111]/0 px-6 text-center  ml-2 mt-50">
             <div className="space-y-4">
-                <div className="font-heading text-5xl font-black uppercase tracking-[0.15em] sm:text-6xl md:text-7xl lg:text-7xl">
+                <div className="font-heading text-5xl font-black uppercase tracking-[0.15em] sm:text-6xl md:text-7xl lg:text-7xl tracking-[5px]">
                     <TextType
                         text={['MOHIT SINGH']}
                         typingSpeed={100}

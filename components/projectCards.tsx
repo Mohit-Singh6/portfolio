@@ -150,14 +150,16 @@ export const Card: React.FC<CardProps> = ({
               {title}
             </h2>
             <p className="text-sm md:text-base text-white/60 leading-relaxed font-sans font-light max-w-sm pt-2">
-            <ul className='list-[circle] list-inside'>
+            <div>
+              <ul className='list-[circle] list-inside'>
 
-              {description.map((des, idx) => {
+                {description.map((des, idx) => {
                   return (
                     <li className='mt-2' key={idx}>{des}</li>      
-                )
-            })}
-            </ul>
+                  )
+                })}
+              </ul>
+            </div>
             </p>
           </div>
 
