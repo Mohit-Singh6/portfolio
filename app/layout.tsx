@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${boldonse.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      className={`dark ${boldonse.variable} ${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <GravityStarsBackground className="absolute inset-0 z-0">

@@ -2,11 +2,11 @@
 import TextAnimation from '@/components/uilayouts/scroll-text';
 import React from 'react';
 
-function ScrollTextAnimation() {
+function AboutSection() {
     return (
         <section className='min-h-screen w-full bg-transparent text-white'>
             <div className='mx-auto flex max-w-[1400px] flex-col gap-16 pl-[5rem] pr-[8rem] py-20'>
-                <div className='max-w-6xl mt-50'>
+                <div className='max-w-6xl mt-50' id='aboutme'>
                     <TextAnimation
                         text='I believe in engineering systems that prioritize flawless architecture over superficial design, turning complex algorithmic logic into highly reliable, automated solutions.'
                         variants={{
@@ -67,4 +67,4 @@ function ScrollTextAnimation() {
     );
 }
 
-export default ScrollTextAnimation;
+export default AboutSection;

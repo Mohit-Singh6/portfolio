@@ -439,7 +439,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   }, [icons, images, iconPositions])
 
   return (
-    <canvas
+    <canvas id='skills'
       ref={canvasRef}
       width={CANVAS_SIZE}
       height={CANVAS_SIZE}

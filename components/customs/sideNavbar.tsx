@@ -16,17 +16,20 @@ export default function RightSidebarNav() {
 
   const navItems: NavItem[] = [
     { id: "home", label: "HOME", lineCount: 6, anchorLineIdx: 0 },
+    { id: "aboutme", label: "ABOUT ME", lineCount: 6, anchorLineIdx: 0 },
     { id: "projects", label: "PROJECTS", lineCount: 6, anchorLineIdx: 0 },
     { id: "skills", label: "SKILLS", lineCount: 6, anchorLineIdx: 0 },
     { id: "education", label: "EDUCATION", lineCount: 6, anchorLineIdx: 0 },
-    { id: "contact me", label: "CONTACT ME", lineCount: 6, anchorLineIdx: 0 },
   ];
 
   let globalLineCounter = 0;
   const deepSeaBlue = "#00b4d8"; 
 
   const handleNavigation = (id: string) => {
-    window.location.hash = `#${id}`;
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      window.location.hash = `#${id}`;
+    }, 100);
   };
 
   return (

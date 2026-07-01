@@ -7,6 +7,7 @@ import ScrollTextAnimation from '@/components/customs/aboutSection';
 import { useRef, useState } from 'react';
 import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
 import { IconCloudHeading } from '@/components/ui/iconCloudHeading';
+import BlackHole from '@/components/customs/blackHole';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -95,8 +96,9 @@ export default function Home() {
       {/* STAGE 2: MAIN PAGE */}
       {isMainMounted && (
         // Kept min-h-screen here so the content stretches properly, pushing the scroll down if it needs room
-        <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24">
+        <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24" id='home'>
           <SidebarNav />
+          <BlackHole />
           <MohitSinghInit />
           <ScrollTextAnimation />
           <IconCloudHeading />

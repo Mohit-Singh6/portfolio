@@ -4,7 +4,7 @@ import TextAnimation from '@/components/uilayouts/scroll-text'
 export function IconCloudHeading() {
 
     return (
-        <div className=' mt-50'>
+        <div className='mt-40 mb-[-50]'>
             <div className='text-left'>
                 <TextAnimation
                     text="MY SKILLS"
@@ -18,7 +18,7 @@ export function IconCloudHeading() {
                             transition: { ease: 'linear' },
                         },
                     }}
-                    classname='text-[3.5rem] md:text-[15rem] font-heading  leading-[0.95] tracking-tight text-white text-transparent [-webkit-text-stroke:1px_#eeeeee] opacity-20'
+                    classname='text-[3.5rem] md:text-[12rem] font-heading  leading-[0.95] tracking-tight text-white text-transparent [-webkit-text-stroke:1px_#eeeeee] opacity-20'
                 />
             </div>
         </div>
