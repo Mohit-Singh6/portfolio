@@ -28,14 +28,14 @@ const ICONS = [
   },
   {
     key: 'linkedin',
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/mohit-singh-s985/',
     icon: <FaLinkedin size={26} color="#0077b5" />,
     borderHover: 'hover:border-[#0077b5]',
     delay: '-8.33s', // 1/3 of 25 s
   },
   {
     key: 'mail',
-    href: 'mailto:you@example.com',
+    href: 'mailto:mohitssr11@gmail.com',
     icon: <Mail size={26} color="#d44638" />,
     borderHover: 'hover:border-[#d44638]',
     delay: '-16.67s', // 2/3 of 25 s

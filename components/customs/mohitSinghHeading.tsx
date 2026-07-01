@@ -71,12 +71,19 @@ export default function MohitSinghInit() {
             </div>
 
             <div className="flex gap-4 mt-8 justify-center ml-80">
+                <a 
+                    href='/mohit_singh_resume.pdf' 
+                    download="Mohit_Singh_Resume.pdf">
+                
                 <button className="group/work relative overflow-hidden rounded-full bg-[#00b4d8] px-8 py-3 text-base transition-colors cursor-pointer">
                     <span className="absolute bottom-0 left-[-50] h-48 w-65 origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white transition-transform duration-600 ease-out group-hover/work:translate-y-12"></span>
                     <span className="font-semibold text-white relative z-10 group-hover/work:text-[#00b4d8] flex gap-2" ><Download /> Resume</span>
                 </button>
+                </a>
 
-                <button className="group/work relative overflow-hidden rounded-full border border-zinc-700/80 bg-transparent px-12 py-3 text-base transition-all duration-300 hover:border-[#2a8fb8] hover:shadow-[2px_2px_10px_rgba(42,143,184,0.35)] cursor-pointer">
+                <button className="group/work relative overflow-hidden rounded-full border border-zinc-700/80 bg-transparent px-12 py-3 text-base transition-all duration-300 hover:border-[#2a8fb8] hover:shadow-[2px_2px_10px_rgba(42,143,184,0.35)] cursor-pointer" onClick={() => {
+                    window.location.href = 'mailto:mohitssr11@gmail.com';
+                }}>
                     <span className="relative z-10 font-semibold text-white transition-colors">Contact Me</span>
                 </button>
                 
