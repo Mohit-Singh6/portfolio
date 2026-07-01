@@ -100,7 +100,7 @@ export default function Home() {
         <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24" id='home'>
           <SidebarNav />
           <BlackHole />
-          {/* <SocialOrbit /> */}
+          <SocialOrbit /> 
           <MohitSinghInit />
           <ScrollTextAnimation />
           <IconCloudHeading />

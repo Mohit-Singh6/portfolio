@@ -181,7 +181,7 @@ export default function BlackHole({ size = 560 }) {
         zIndex: 40,
         filter: "drop-shadow(0 10px 32px rgba(255,255,255,0.12))",
       }}
-      className="mix-blend-screen opacity-90 ml-80 mt-[-25]"
+      className="mix-blend-screen opacity-90"
     >
       <canvas
         ref={canvasRef}
