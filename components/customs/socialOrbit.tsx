@@ -49,19 +49,19 @@ export function SocialOrbit() {
   // at viewport y = 0 — the very top edge of the screen.
   const orbitCenterY = 0;  // px from top of viewport
   const radius = 180;      // orbit radius in px
-  const duration = 25;     // seconds per revolution
+  const duration = 10;     // seconds per revolution
 
   return (
-    <>
+    <div>
       {/* Inject the keyframe + icon styles once */}
       <style>{`
         @keyframes socialOrbit {
-          from { transform: rotate(0deg) translateX(${radius}px) rotate(0deg); }
-          to   { transform: rotate(360deg) translateX(${radius}px) rotate(-360deg); }
+          from   { transform: rotate(360deg) translateX(${radius}px) rotate(-360deg); }
+          to { transform: rotate(0deg) translateX(${radius}px) rotate(0deg); }
         }
 
         .social-orbit-anchor {
-          position: fixed;
+          position: absolute;
           top: ${orbitCenterY}px;
           left: 50%;
           width: 0;
@@ -107,7 +107,7 @@ export function SocialOrbit() {
         }
       `}</style>
 
-      <div className="social-orbit-anchor" aria-hidden="false">
+      <div className="social-orbit-anchor ml-80" aria-hidden="false">
         {ICONS.map(({ key, href, icon }) => (
           <div key={key} className="social-orbit-item">
             <a
@@ -122,6 +122,6 @@ export function SocialOrbit() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

@@ -43,7 +43,7 @@ export default function BlackHole({ size = 560 }) {
       const angle = Math.random() * Math.PI * 2;
       // base orbital speed (closer = faster). apply a global dampening
       // factor so the whole disk rotates more slowly by default.
-      const speed = ((horizonR * 6) / r) * 0.4; // reduced base speed
+      const speed = ((horizonR * 6) / r) * 0.7; // reduced base speed
       const tilt = 0.34 + Math.random() * 0.04; // squash for perspective
       const hueJ = Math.random();
       return { r, angle, speed, tilt, hueJ, size: 0.6 + Math.random() * 1.6 };
@@ -170,7 +170,7 @@ export default function BlackHole({ size = 560 }) {
     <div
       aria-hidden="true"
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: "50%",
         width: size,
@@ -181,7 +181,7 @@ export default function BlackHole({ size = 560 }) {
         zIndex: 40,
         filter: "drop-shadow(0 10px 32px rgba(255,255,255,0.12))",
       }}
-      className="mix-blend-screen opacity-90"
+      className="mix-blend-screen opacity-90 ml-80"
     >
       <canvas
         ref={canvasRef}
