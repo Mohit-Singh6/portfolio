@@ -21,7 +21,7 @@ import { Mail } from 'lucide-react';
 const ICONS = [
   {
     key: 'github',
-    href: 'https://github.com',
+    href: 'https://github.com/Mohit-Singh6',
     icon: <FaGithub size={26} color="white" />,
     borderHover: 'hover:border-white',
     delay: '0s',

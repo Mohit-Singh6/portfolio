@@ -9,6 +9,7 @@ import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
 import { IconCloudHeading } from '@/components/ui/iconCloudHeading';
 import BlackHole from '@/components/customs/blackHole';
 import {SocialOrbit} from '@/components/customs/socialOrbit';
+import Projects from '@/components/cardStack';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -103,6 +104,7 @@ export default function Home() {
           <SocialOrbit /> 
           <MohitSinghInit />
           <ScrollTextAnimation />
+          <Projects />
           <IconCloudHeading />
           <MyTechStackGlobe />
         </main>
