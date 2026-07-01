@@ -8,6 +8,7 @@ import { useRef, useState } from 'react';
 import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
 import { IconCloudHeading } from '@/components/ui/iconCloudHeading';
 import BlackHole from '@/components/customs/blackHole';
+import {SocialOrbit} from '@/components/customs/socialOrbit';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -99,6 +100,7 @@ export default function Home() {
         <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24" id='home'>
           <SidebarNav />
           <BlackHole />
+          {/* <SocialOrbit /> */}
           <MohitSinghInit />
           <ScrollTextAnimation />
           <IconCloudHeading />

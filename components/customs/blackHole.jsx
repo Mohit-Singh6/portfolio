@@ -41,7 +41,9 @@ export default function BlackHole({ size = 560 }) {
     const particles = Array.from({ length: N }, () => {
       const r = horizonR * 1.35 + Math.random() * size * 0.42;
       const angle = Math.random() * Math.PI * 2;
-      const speed = (horizonR * 6) / r; // inverse-ish for orbital feel
+      // base orbital speed (closer = faster). apply a global dampening
+      // factor so the whole disk rotates more slowly by default.
+      const speed = ((horizonR * 6) / r) * 0.4; // reduced base speed
       const tilt = 0.34 + Math.random() * 0.04; // squash for perspective
       const hueJ = Math.random();
       return { r, angle, speed, tilt, hueJ, size: 0.6 + Math.random() * 1.6 };
@@ -57,10 +59,11 @@ export default function BlackHole({ size = 560 }) {
       ctx.clearRect(0, 0, size, size);
 
       // ---- outer ambient glow (soft white bloom, gently breathing) ----
-      const breathe = 0.85 + Math.sin(time * 0.6) * 0.15;
+      const breathe = 0.85;
       const ambient = ctx.createRadialGradient(cx, cy, horizonR * 0.7, cx, cy, size * 0.62 * breathe);
-      ambient.addColorStop(0, "rgba(255,255,255,0.22)");
-      ambient.addColorStop(0.35, "rgba(235,240,255,0.09)");
+      // reduce ambient intensity so the dome blends into the page
+      ambient.addColorStop(0, "rgba(255,255,255,0.12)");
+      ambient.addColorStop(0.35, "rgba(235,240,255,0.05)");
       ambient.addColorStop(1, "rgba(255,255,255,0)");
       ctx.fillStyle = ambient;
       ctx.fillRect(0, 0, size, size);
@@ -72,7 +75,7 @@ export default function BlackHole({ size = 560 }) {
       const lensR = horizonR * 1.5;
       const lensGrad = ctx.createLinearGradient(cx, cy - lensR, cx, cy - horizonR * 0.4);
       lensGrad.addColorStop(0, "rgba(255,255,255,0)");
-      lensGrad.addColorStop(0.5, "rgba(255,255,255,0.9)");
+      lensGrad.addColorStop(0.5, "rgba(255,255,255,0.5)");
       lensGrad.addColorStop(1, "rgba(255,255,255,0)");
       ctx.save();
       ctx.strokeStyle = lensGrad;
@@ -99,15 +102,16 @@ export default function BlackHole({ size = 560 }) {
 
       function drawWavyRim() {
         const baseR = horizonR * 1.1;
+        // softened rim layers for better blending with the page
         const layers = [
-          { amp: horizonR * 0.05, freq: 7, speed: 1.3, width: size * 0.05, alpha: 0.35, blur: 26 },
-          { amp: horizonR * 0.035, freq: 11, speed: -1.8, width: size * 0.03, alpha: 0.5, blur: 16 },
-          { amp: horizonR * 0.02, freq: 17, speed: 2.4, width: size * 0.014, alpha: 0.85, blur: 6 },
+          { amp: horizonR * 0.05, freq: 7, speed: 1.3, width: size * 0.05, alpha: 0.22, blur: 20 },
+          { amp: horizonR * 0.035, freq: 11, speed: -1.8, width: size * 0.03, alpha: 0.32, blur: 12 },
+          { amp: horizonR * 0.02, freq: 17, speed: 2.4, width: size * 0.014, alpha: 0.45, blur: 5 },
         ];
 
         for (const layer of layers) {
           ctx.save();
-          ctx.shadowColor = "rgba(255,255,255,0.9)";
+          ctx.shadowColor = "rgba(255,255,255,0.75)";
           ctx.shadowBlur = layer.blur;
           ctx.strokeStyle = `rgba(255,255,255,${layer.alpha})`;
           ctx.lineWidth = layer.width;
@@ -132,7 +136,8 @@ export default function BlackHole({ size = 560 }) {
 
       function drawDiskParticles(back) {
         for (const p of particles) {
-          p.angle += p.speed * 0.0026;
+          // per-frame angular increment. lower multiplier slows visible rotation.
+          p.angle += p.speed * 0.0012;
           const x = Math.cos(p.angle);
           const y = Math.sin(p.angle) * p.tilt;
           const isBack = y < 0; // upper half of ellipse = "behind" the hole
@@ -174,8 +179,9 @@ export default function BlackHole({ size = 560 }) {
         overflow: "hidden",
         pointerEvents: "none",
         zIndex: 40,
-        filter: "drop-shadow(0 12px 44px rgba(255,255,255,0.28))",
+        filter: "drop-shadow(0 10px 32px rgba(255,255,255,0.12))",
       }}
+      className="mix-blend-screen opacity-90 ml-80 mt-[-25]"
     >
       <canvas
         ref={canvasRef}
@@ -186,6 +192,9 @@ export default function BlackHole({ size = 560 }) {
           top: -size / 2,
           left: 0,
           transform: "scaleY(-1)",
+          // mask the top so the dome fades smoothly into the page background
+          maskImage: 'linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1) 38%)',
+          WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1) 38%)',
         }}
       />
     </div>
