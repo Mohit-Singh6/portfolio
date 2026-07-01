@@ -14,9 +14,9 @@ export default function OpeningPageHeading() {
                         showCursor={true}
                         deletingSpeed={50}
                         cursorCharacter='_'
-                        variableSpeedEnabled={false}
-                        variableSpeedMin={100}
-                        variableSpeedMax={120}
+                        // variableSpeedEnabled={false}
+                        // variableSpeedMin={100}
+                        // variableSpeedMax={120}
                         cursorBlinkDuration={0.5}
                         className="text-white"
                         color="#00b4d8"
