@@ -6,11 +6,11 @@ import { Download } from "lucide-react"
 
 export default function MohitSinghInit () {
     return (
-        <div className="flex flex-col mt-40 w-full mr-230">
+        <div className="flex flex-col mt-50 w-full mr-230">
 
             <SplitText
                 text="MOHIT"
-                className="font-heading text-8xl md:text-6xl text-white text-center h-22 pt-4"
+                className="font-heading text-8xl md:text-6xl text-white text-center h-22 pt-4 ml-50"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"
@@ -24,7 +24,7 @@ export default function MohitSinghInit () {
             />
             <SplitText
                 text="SINGH"
-                className="font-heading text-8xl md:text-6xl text-center h-22 pt-4 pl-18"
+                className="font-heading text-8xl md:text-6xl text-center h-22 pt-4 pl-18 ml-60"
                 delay={50}
                 duration={1.25}
                 ease="power3.out"

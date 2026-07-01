@@ -17,6 +17,7 @@ export default function RightSidebarNav() {
   const navItems: NavItem[] = [
     { id: "home", label: "HOME", lineCount: 6, anchorLineIdx: 0 },
     { id: "projects", label: "PROJECTS", lineCount: 6, anchorLineIdx: 0 },
+    { id: "skills", label: "SKILLS", lineCount: 6, anchorLineIdx: 0 },
     { id: "education", label: "EDUCATION", lineCount: 6, anchorLineIdx: 0 },
     { id: "contact me", label: "CONTACT ME", lineCount: 6, anchorLineIdx: 0 },
   ];

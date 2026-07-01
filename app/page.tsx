@@ -3,7 +3,6 @@
 import MohitSinghInit from '@/components/customs/mohitSinghHeading';
 import SidebarNav from '@/components/customs/sideNavbar';
 import OpeningPageHeading from '@/components/customs/openingPageHeading';
-import { GravityStarsBackground } from '@/components/animate-ui/components/backgrounds/gravity-stars';
 import { useRef, useState } from 'react';
 import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
 
@@ -17,18 +16,14 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleStartTransition = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (phase !== 'intro') return; // ignore extra clicks once started
+    if (phase !== 'intro') return;
 
     const rect = containerRef.current?.getBoundingClientRect();
     const x = e.clientX - (rect?.left ?? 0);
     const y = e.clientY - (rect?.top ?? 0);
     
-    // Set coordinates. Because phase is still 'intro', transition is 0ms.
-    // It teleports to these coordinates instantly.
     setRipplePos({ x, y });
 
-    // Let the browser paint the teleported 0% state first,
-    // so growth visibly animates from that exact spot.
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         setPhase('expanding');
@@ -40,10 +35,8 @@ export default function Home() {
     if (e.propertyName !== 'clip-path') return;
 
     if (phase === 'expanding') {
-      // Screen is fully covered. Mount main page, then collapse.
       setPhase('collapsing');
     } else if (phase === 'collapsing') {
-      // Circle has fully closed back at the click point — done.
       setPhase('main');
     }
   };
@@ -53,18 +46,33 @@ export default function Home() {
   const isIntroMounted = phase === 'intro' || phase === 'expanding';
 
   return (
+    // THE FIX: Changed 'min-h-screen' to 'h-screen' so this container becomes the scroll engine.
+    // Added 'overflow-y-auto' to ensure scrolling, and custom classes to hide the bar.
     <div
-      className="relative min-h-screen w-full bg-[#111111]/0 text-white overflow-auto font-sans select-none"
+      className="relative h-screen w-full bg-[#111111]/0 text-white overflow-y-auto overflow-x-hidden font-sans select-none scrollbar-hide"
       ref={containerRef}
+      style={{
+        // Native Firefox & IE scrollbar hiding
+        scrollbarWidth: 'none', 
+        msOverflowStyle: 'none'
+      }}
     >
+      {/* Global Style Injection to hide Webkit (Chrome/Safari) scrollbars while keeping scroll functionality */}
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+
       {/* Ripple mask layer */}
       <div
         onTransitionEnd={handleClipTransitionEnd}
-        className="absolute inset-0 z-[90] pointer-events-none transition-[clip-path] ease-[cubic-bezier(0.4,0,0.2,1)]"
+        className="fixed inset-0 transition-[clip-path] ease-[cubic-bezier(0.4,0,0.2,1)]"
         style={{
           backgroundColor: '#00b4d8',
-          // THE FIX: 0ms during 'intro' to prevent the origin point from sliding.
-          // 600ms otherwise to give you that buttery smooth expansion and collapse.
+          // Drops mask behind content once loaded so it can't trap scroll wheel events
+          zIndex: phase === 'main' ? -1 : 90, 
+          pointerEvents: phase === 'intro' ? 'auto' : 'none',
           transitionDuration: phase === 'intro' ? '0ms' : `${TRANSITION_MS}ms`,
           clipPath: isCovering
             ? `circle(150% at ${ripplePos.x}px ${ripplePos.y}px)`
@@ -84,10 +92,11 @@ export default function Home() {
 
       {/* STAGE 2: MAIN PAGE */}
       {isMainMounted && (
-        <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24">
+        // Kept min-h-screen here so the content stretches properly, pushing the scroll down if it needs room
+        <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24">
           <SidebarNav />
-          <MyTechStackGlobe />
           <MohitSinghInit />
+          <MyTechStackGlobe />
         </main>
       )}
     </div>
