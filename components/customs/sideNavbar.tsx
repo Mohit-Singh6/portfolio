@@ -64,7 +64,7 @@ export default function RightSidebarNav() {
 
                   if (isAnchorLine) {
                     if (isNavHovered) {
-                      widthClass = "w-48"; 
+                      widthClass = "w-40"; 
                       if (isThisSectionHovered) {
                         inlineStyle = { 
                           backgroundColor: deepSeaBlue, 
@@ -78,14 +78,14 @@ export default function RightSidebarNav() {
                     if (hoveredGlobalLineIdx !== null) {
                       const distance = Math.abs(currentGlobalIdx - hoveredGlobalLineIdx);
 
-                      if (distance === 0) widthClass = "w-28 bg-zinc-300";
-                      else if (distance === 1) widthClass = "w-24 bg-zinc-400";
-                      else if (distance === 2) widthClass = "w-18 bg-zinc-500";
-                      else if (distance === 3) widthClass = "w-14 bg-zinc-500";
-                      else if (distance === 4) widthClass = "w-10 bg-zinc-600";
-                      else if (distance === 5) widthClass = "w-8 bg-zinc-600";
+                      if (distance === 0) widthClass = "w-22 bg-zinc-300";
+                      else if (distance === 1) widthClass = "w-18 bg-zinc-400";
+                      else if (distance === 2) widthClass = "w-12 bg-zinc-500";
+                      else if (distance === 3) widthClass = "w-8 bg-zinc-500";
+                      else if (distance === 4) widthClass = "w-4 bg-zinc-600";
+                      else if (distance === 5) widthClass = "w-2 bg-zinc-600";
                     } else if (isNavHovered) {
-                      widthClass = "w-8 bg-zinc-600";
+                      widthClass = "w-2 bg-zinc-600";
                     }
                   }
 
@@ -93,7 +93,7 @@ export default function RightSidebarNav() {
                     // Added "relative" here so the absolute text positions perfectly underneath it
                     <div
                       key={localIdx}
-                      className="h-2 w-48 flex items-center justify-end bg-transparent group/row relative"
+                      className="h-2 w-40 flex items-center justify-end bg-transparent group/row relative"
                       onMouseEnter={(e) => {
                         e.stopPropagation();
                         setHoveredGlobalLineIdx(currentGlobalIdx);
