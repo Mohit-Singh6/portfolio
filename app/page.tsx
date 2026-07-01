@@ -3,8 +3,10 @@
 import MohitSinghInit from '@/components/customs/mohitSinghHeading';
 import SidebarNav from '@/components/customs/sideNavbar';
 import OpeningPageHeading from '@/components/customs/openingPageHeading';
+import ScrollTextAnimation from '@/components/customs/aboutSection';
 import { useRef, useState } from 'react';
 import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
+import { IconCloudHeading } from '@/components/ui/iconCloudHeading';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -96,6 +98,8 @@ export default function Home() {
         <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24">
           <SidebarNav />
           <MohitSinghInit />
+          <ScrollTextAnimation />
+          <IconCloudHeading />
           <MyTechStackGlobe />
         </main>
       )}

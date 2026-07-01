@@ -335,6 +335,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             // Standard "Normal" Glow: Use Canvas shadow properties
             ctx.shadowColor = iconMeta.color;
             ctx.shadowBlur = 80; // Significantly increased radius
+            if (iconMeta.name === 'Prisma') {
+              ctx.shadowBlur = 0;
+              ctx.shadowColor = 'transparent';
+            }
             ctx.shadowOffsetX = 0;
             ctx.shadowOffsetY = 0;
 

@@ -2,7 +2,7 @@
 
 import TextType from '../TextType'
 
-export default function OpeningPageHeading() {
+export default function AboutMe() {
     return (
         <div className="flex min-h-screen w-full items-center justify-center bg-[#111111]/0 px-6 text-center  ml-2 mt-50">
             <div className="space-y-4">
@@ -14,9 +14,9 @@ export default function OpeningPageHeading() {
                         showCursor={true}
                         deletingSpeed={50}
                         cursorCharacter='_'
-                        variableSpeedEnabled={false}
-                        variableSpeedMin={100}
-                        variableSpeedMax={120}
+                        // variableSpeedEnabled={false}
+                        // variableSpeedMin={100}
+                        // variableSpeedMax={120}
                         cursorBlinkDuration={0.5}
                         className="text-white"
                         color="#00b4d8"
