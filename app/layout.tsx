@@ -30,12 +30,12 @@ export default function RootLayout({
       lang="en"
       className={`dark ${boldonse.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <GravityStarsBackground className="absolute inset-0 z-0">
           <div className="relative z-10 flex-1 flex flex-col">
             {children}
           </div>
-        </GravityStarsBackground >
+        </GravityStarsBackground>
       </body>
     </html>
   );

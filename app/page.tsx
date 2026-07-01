@@ -5,6 +5,7 @@ import SidebarNav from '@/components/customs/sideNavbar';
 import OpeningPageHeading from '@/components/customs/openingPageHeading';
 import { GravityStarsBackground } from '@/components/animate-ui/components/backgrounds/gravity-stars';
 import { useRef, useState } from 'react';
+import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -53,7 +54,7 @@ export default function Home() {
 
   return (
     <div
-      className="relative min-h-screen w-full bg-[#111111]/0 text-white overflow-hidden font-sans select-none"
+      className="relative min-h-screen w-full bg-[#111111]/0 text-white overflow-auto font-sans select-none"
       ref={containerRef}
     >
       {/* Ripple mask layer */}
@@ -85,6 +86,7 @@ export default function Home() {
       {isMainMounted && (
         <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24">
           <SidebarNav />
+          <MyTechStackGlobe />
           <MohitSinghInit />
         </main>
       )}
