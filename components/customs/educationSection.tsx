@@ -43,7 +43,7 @@ export default function EducationSection() {
         </div>
 
         {/* Education Cards Grid */}
-        <div className="grid gap-6 lg:gap-8 md:grid-cols-2">
+        <div className="grid gap-6 lg:gap-8 md:grid-cols-2 sm:grid-cols-1">
           {educationItems.map((item) => (
             <article
               key={item.title}
@@ -61,7 +61,7 @@ export default function EducationSection() {
                 </span>
                 
                 {/* Replaced 'leading-tight' with 'leading-snug' to fix the squished text */}
-                <h3 className="mt-4 text-[1.75rem] md:text-[2rem] lg:text-[2.25rem] font-heading leading-snug text-[#efefef]">
+                <h3 className="mt-4 text-[1.75rem] md:text-[2rem] lg:text-[2rem] font-heading leading-normal text-[#efefef]">
                   {item.title}
                 </h3>
                 

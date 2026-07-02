@@ -38,7 +38,7 @@ export default function MohitSinghInit() {
                 color="#00b4d8"
             />
 
-            <div className="ml-147 w-160 mt-8">
+            <div className="ml-147 w-160 mt-8 ">
                 <SplitText
                     text="Information Technology @ NIT Jalandhar"
                     delay={30}

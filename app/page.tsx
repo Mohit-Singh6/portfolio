@@ -1,12 +1,12 @@
 'use client';
 
-import MohitSinghInit from '@/components/customs/mohitSinghHeading';
+import MohitSinghInit from '@/components/customs/homePageText';
 import SidebarNav from '@/components/customs/sideNavbar';
-import OpeningPageHeading from '@/components/customs/openingPageHeading';
+import OpeningPageHeading from '@/components/customs/transitionPage';
 import ScrollTextAnimation from '@/components/customs/aboutSection';
 import { useRef, useState } from 'react';
-import { MyTechStackGlobe } from '@/components/ui/icon-cloud';
-import { IconCloudHeading } from '@/components/ui/iconCloudHeading';
+import { MyTechStackGlobe } from '@/components/ui/skillsSolarSystem';
+import { IconCloudHeading } from '@/components/ui/skillsHeading';
 import BlackHole from '@/components/customs/blackHole';
 import {SocialOrbit} from '@/components/customs/socialOrbit';
 import EducationSection from '@/components/customs/educationSection';
@@ -54,8 +54,6 @@ export default function Home() {
   const isIntroMounted = phase === 'intro' || phase === 'expanding';
 
   return (
-    // THE FIX: Changed 'min-h-screen' to 'h-screen' so this container becomes the scroll engine.
-    // Added 'overflow-y-auto' to ensure scrolling, and custom classes to hide the bar.
     <div
       className="relative h-screen w-full bg-[#111111]/0 text-white overflow-y-auto overflow-x-hidden font-sans select-none scrollbar-hide"
       ref={containerRef}
@@ -100,7 +98,6 @@ export default function Home() {
 
       {/* STAGE 2: MAIN PAGE */}
       {isMainMounted && (
-        // Kept min-h-screen here so the content stretches properly, pushing the scroll down if it needs room
         <main className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-12 lg:px-24 pb-24" id='home'>
           <SidebarNav />
           <BlackHole />

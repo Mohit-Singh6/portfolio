@@ -17,7 +17,7 @@ export default function EmailFooter() {
                             transition: { ease: 'linear' },
                         },
                     }}
-                    classname='text-[3.2rem] md:text-[3.8rem] xl:text-[1.5rem] leading-[0.98] font-sans text-left text-white max-w-6xl normal-case no-underline hover:underline '
+                    classname='text-[1rem] md:text-[1.25rem] xl:text-[1.5rem] leading-[0.98] font-sans text-left text-white max-w-6xl normal-case no-underline hover:underline '
                 />
             </a>
         </div>

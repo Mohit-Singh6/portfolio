@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "components/customs/socialOrbit.tsx"  ],
+, "components/customs/socialOrbit.tsx", "components/customs/transitionPage.jsx", "components/customs/homePageText.jsx"  ],
   "exclude": ["node_modules"]
 }

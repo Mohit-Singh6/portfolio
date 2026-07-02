@@ -18,7 +18,7 @@ export function IconCloudHeading() {
                             transition: { ease: 'linear' },
                         },
                     }}
-                    classname='text-[3.5rem] md:text-[11rem] font-heading  leading-[0.95] tracking-tight text-white text-transparent [-webkit-text-stroke:1px_#eeeeee] opacity-20'
+                    classname='text-[6rem] md:text-[8rem] lg:text-[11rem] font-heading  leading-[0.95] tracking-tight text-white text-transparent [-webkit-text-stroke:1px_#eeeeee] opacity-20'
                 />
             </div>
         </div>
