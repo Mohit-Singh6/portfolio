@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mohit Singh Portfolio
+
+A modern, interactive personal portfolio built with Next.js and React, designed to showcase projects, technical skills, education, and contact information in a polished and immersive experience.
+
+## Overview
+
+This portfolio features:
+
+- A visually rich landing experience with animated transitions
+- A hero section highlighting my background in Information Technology and full-stack development
+- A project showcase section with featured work
+- An interactive skills section with a solar-system-inspired visual
+- An education section and a direct contact footer
+- A responsive, dark-themed UI optimized for modern browsers
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- Tailwind CSS
+- GSAP, Motion, and Lenis for animation
+- Lucide icons and custom UI components
+
+## Screenshots
+
+Here are a few of the project visuals included in the portfolio:
+
+- [Scout Home Page](public/scout-home-page.png)
+- [MeetNow Home Page](public/meetnow-home-page.png)
+- [Artecho Home Page](public/artecho-home-page.png)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/portfolio2.git
+   cd portfolio2
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Run the development server
+   ```bash
+   npm run dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Open your browser at
+   ```text
+   http://localhost:3000
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+- `npm run dev` — start the development server
+- `npm run build` — create a production build
+- `npm run start` — start the production server
+- `npm run lint` — run ESLint checks
 
-To learn more about Next.js, take a look at the following resources:
+## Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you would like to connect, feel free to reach out through the contact section on the site or email me directly at mohitssr11@gmail.com.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Note
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is a personal portfolio and is currently tailored to showcase my work, skills, and background.

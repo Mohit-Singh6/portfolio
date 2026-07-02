@@ -1,5 +1,3 @@
-'use client';
-
 import ScrollFloat from '@/components/ScrollFloat';
 
 const educationItems = [

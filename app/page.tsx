@@ -1,9 +1,9 @@
 'use client';
 
-import MohitSinghInit from '@/components/customs/homePageText';
+import HomePageMain from '@/components/customs/homePageText';
 import SidebarNav from '@/components/customs/sideNavbar';
-import OpeningPageHeading from '@/components/customs/transitionPage';
-import ScrollTextAnimation from '@/components/customs/aboutSection';
+import TransitionPage from '@/components/customs/transitionPage';
+import AboutSection from '@/components/customs/aboutSection';
 import { useRef, useState } from 'react';
 import { MyTechStackGlobe } from '@/components/ui/skillsSolarSystem';
 import { IconCloudHeading } from '@/components/ui/skillsHeading';
@@ -92,7 +92,7 @@ export default function Home() {
           onClick={handleStartTransition}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#111111] bg-[radial-gradient(circle_at_top_right,_rgba(0,180,216,0.05),_transparent_40%)] cursor-pointer h-screen w-full"
         >
-          <OpeningPageHeading/>
+          <TransitionPage />
         </div>
       )}
 
@@ -102,8 +102,8 @@ export default function Home() {
           <SidebarNav />
           <BlackHole />
           <SocialOrbit />
-          <MohitSinghInit />
-          <ScrollTextAnimation />
+          <HomePageMain />
+          <AboutSection />
           <ProjectsHeading />
           <Projects />
           <IconCloudHeading />

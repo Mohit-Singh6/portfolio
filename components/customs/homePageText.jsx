@@ -1,9 +1,7 @@
 'use client'
 
 import SplitText from "../SplitText"
-import { useEffect } from 'react'
 import { Download } from "lucide-react"
-import Folder from '../Folder'
 
 export default function MohitSinghInit() {
     return (
