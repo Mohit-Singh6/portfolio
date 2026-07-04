@@ -39,8 +39,8 @@ export default function SpaceFooter() {
                 }}
                 classname="w-full sm:w-auto"
               >
-                <a href="mailto:hello@yourportfolio.dev" className="w-full sm:w-auto">
-                  <button className="group/work relative overflow-hidden rounded-full border border-zinc-700/80 bg-transparent px-10 py-3 text-base transition-all duration-300 hover:border-white/25 hover:shadow-[2px_2px_10px_rgba(255,255,255,0.08)] cursor-pointer">
+                <a href="mailto:mohitssr11@gmail.com" className="w-full sm:w-auto">
+                  <button className="group/work relative overflow-hidden rounded-full border border-zinc-700/80 bg-transparent px-8 py-3 text-base transition-all duration-300 hover:border-white/25 hover:shadow-[2px_2px_10px_rgba(255,255,255,0.08)] cursor-pointer">
                     <span className="absolute bottom-0 left-[-50] h-48 w-65 origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white transition-transform duration-600 ease-out group-hover/work:translate-y-12"></span>
                     <span className="font-semibold text-white relative z-10 group-hover/work:text-[#000000] flex items-center gap-2">
                       <MdEmail className="h-5 w-5 shrink-0" />
@@ -69,7 +69,7 @@ export default function SpaceFooter() {
               <span className="text-sm uppercase tracking-[0.3em] text-white/60">Socials</span>
               <div className="flex items-center gap-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Mohit-Singh6"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
@@ -79,7 +79,7 @@ export default function SpaceFooter() {
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/in/mohit-singh-s985"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
