@@ -6,7 +6,7 @@ interface NavItem {
   id: string;
   label: string;
   lineCount: number;
-  anchorLineIdx: number; 
+  anchorLineIdx: number;
 }
 
 export default function RightSidebarNav() {
@@ -23,7 +23,7 @@ export default function RightSidebarNav() {
   ];
 
   let globalLineCounter = 0;
-  const deepSeaBlue = "#00b4d8"; 
+  const deepSeaBlue = "#00b4d8";
 
   const handleNavigation = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -34,9 +34,9 @@ export default function RightSidebarNav() {
 
   return (
     <div className="fixed right-0 top-0 h-screen w-[450px] flex justify-end items-center bg-transparent z-50 pointer-events-none select-none font-sans">
-      
+
       {/* Sidebar Navigation Rail Container */}
-      <nav 
+      <nav
         className="h-fit flex flex-col justify-center pr-6 pointer-events-auto gap-1"
         onMouseEnter={() => setIsNavHovered(true)}
         onMouseLeave={() => {
@@ -56,26 +56,26 @@ export default function RightSidebarNav() {
               onMouseLeave={() => setHoveredSectionId(null)}
               className="relative flex flex-col items-end group cursor-pointer w-full"
             >
-              
+
               {/* Outer lines stack wrapper with a strict, continuous gap-1 */}
               <div className="flex flex-col items-end w-full gap-1">
                 {Array.from({ length: item.lineCount }).map((_, localIdx) => {
                   const currentGlobalIdx = globalLineCounter++;
                   const isAnchorLine = localIdx === item.anchorLineIdx;
-                  
+
                   let inlineStyle: React.CSSProperties = {};
-                  let widthClass = "w-6 bg-zinc-700"; 
+                  let widthClass = "w-6 bg-zinc-700";
 
                   if (isAnchorLine) {
                     if (isNavHovered) {
-                      widthClass = "w-40"; 
+                      widthClass = "w-40";
                       if (isThisSectionHovered) {
-                        inlineStyle = { 
-                          backgroundColor: deepSeaBlue, 
-                          boxShadow: `0 0 10px ${deepSeaBlue}40` 
+                        inlineStyle = {
+                          backgroundColor: deepSeaBlue,
+                          boxShadow: `0 0 10px ${deepSeaBlue}40`
                         };
                       } else {
-                        inlineStyle = { backgroundColor: "#e4e4e7" }; 
+                        inlineStyle = { backgroundColor: "#e4e4e7" };
                       }
                     }
                   } else {
@@ -112,12 +112,11 @@ export default function RightSidebarNav() {
                       {/* Text Label - Now completely absolute! It floats without pushing components down */}
                       {isAnchorLine && (
                         <div
-                          style={{ width: "192px" }} 
-                          className={`absolute left-0 top-3 transition-all duration-300 ease-out pointer-events-none ${
-                            isNavHovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
-                          }`}
+                          style={{ width: "192px" }}
+                          className={`absolute left-0 top-3 transition-all duration-300 ease-out pointer-events-none ${isNavHovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+                            }`}
                         >
-                          <span 
+                          <span
                             style={{ color: isThisSectionHovered ? deepSeaBlue : "#a1a1aa" }}
                             className="text-[11px] font-black tracking-[0.25em] text-left uppercase transition-colors duration-300 block"
                           >

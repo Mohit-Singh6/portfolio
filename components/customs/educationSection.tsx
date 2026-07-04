@@ -5,7 +5,7 @@ const educationItems = [
     title: 'B.Tech in Information Technology',
     institution: 'National Institute of Technology, Jalandhar',
     duration: '2024 — Present',
-    details: ['8.24 CGPA (till 4th semester)'],
+    details: ['8.27 CGPA (till 4th semester)'],
   },
   {
     title: 'Class 12th • Non-Medical',
@@ -19,7 +19,7 @@ export default function EducationSection() {
   return (
     <section id="education" className="min-h-screen w-full bg-transparent text-white flex items-center">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-12 lg:gap-16   py-20 w-full pr-30 pl-10">
-        
+
         {/* Header Area */}
         <div className="max-w-4xl ml-1">
           <ScrollFloat
@@ -49,24 +49,24 @@ export default function EducationSection() {
             >
               {/* Subtle Animated Top Border Glow */}
               <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-cyan-400/0 to-transparent group-hover:via-cyan-400/50 transition-all duration-700" />
-              
+
               {/* Vertical Cyan Accent Line */}
               <div className="absolute left-8 top-8 bottom-8 w-1 rounded-full bg-cyan-500/20 group-hover:bg-cyan-400/80 transition-colors duration-500" aria-hidden="true" />
-              
+
               <div className="relative z-10 ml-8 flex flex-col h-full">
                 <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400/90">
                   {item.duration}
                 </span>
-                
+
                 {/* Replaced 'leading-tight' with 'leading-snug' to fix the squished text */}
                 <h3 className="mt-4 text-[1.75rem] md:text-[2rem] lg:text-[2rem] font-heading leading-normal text-[#efefef]">
                   {item.title}
                 </h3>
-                
+
                 <p className="mt-3 text-base text-slate-400 font-medium">
                   {item.institution}
                 </p>
-                
+
                 {/* Properly styled bullet point section pushed to the bottom */}
                 <div className="mt-auto pt-8">
                   <ul className="flex items-center gap-3">

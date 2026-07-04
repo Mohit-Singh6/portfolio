@@ -8,7 +8,7 @@ import { useRef, useState } from 'react';
 import { MyTechStackGlobe } from '@/components/ui/skillsSolarSystem';
 import { IconCloudHeading } from '@/components/ui/skillsHeading';
 import BlackHole from '@/components/customs/blackHole';
-import {SocialOrbit} from '@/components/customs/socialOrbit';
+import { SocialOrbit } from '@/components/customs/socialOrbit';
 import EducationSection from '@/components/customs/educationSection';
 import Projects from '@/components/projectCards';
 import { ProjectsHeading } from '@/components/ui/projectsHeading';
@@ -29,7 +29,7 @@ export default function Home() {
     const rect = containerRef.current?.getBoundingClientRect();
     const x = e.clientX - (rect?.left ?? 0);
     const y = e.clientY - (rect?.top ?? 0);
-    
+
     setRipplePos({ x, y });
 
     requestAnimationFrame(() => {
@@ -59,7 +59,7 @@ export default function Home() {
       ref={containerRef}
       style={{
         // Native Firefox & IE scrollbar hiding
-        scrollbarWidth: 'none', 
+        scrollbarWidth: 'none',
         msOverflowStyle: 'none'
       }}
     >
@@ -77,7 +77,7 @@ export default function Home() {
         style={{
           backgroundColor: '#00b4d8',
           // Drops mask behind content once loaded so it can't trap scroll wheel events
-          zIndex: phase === 'main' ? -1 : 90, 
+          zIndex: phase === 'main' ? -1 : 90,
           pointerEvents: phase === 'intro' ? 'auto' : 'none',
           transitionDuration: phase === 'intro' ? '0ms' : `${TRANSITION_MS}ms`,
           clipPath: isCovering

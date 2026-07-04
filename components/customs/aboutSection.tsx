@@ -50,14 +50,14 @@ function AboutSection() {
                             text="I’m an Information Technology undergrad at NIT Jalandhar who builds resilient, scalable web apps. I prioritize functional, clean code over visual flair, using a problem-solving mindset to tackle complex algorithmic challenges. I build tools born from necessity—if it can be optimized, I want to build the logic behind it."
                             direction='right'
                             highlightWords={['Full-Stack', 'Developer', 'Information', 'Technology', 'NIT', 'Jalandhar']}
-                            
+
                             classname='text-xl md:text-2xl font-medium leading-8 text-slate-300 normal-case'
                         />
                         <TextAnimation
                             text="When I'm not in my IDE, you'll find me scrambling in my sketchbook or being lost in a good book."
                             direction='right'
                             highlightWords={[]}
-                            
+
                             classname='text-lg md:text-xl font-light leading-8 text-slate-400 normal-case'
                         />
                     </div>

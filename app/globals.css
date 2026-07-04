@@ -121,9 +121,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
@@ -132,7 +134,8 @@
 
 
 /* Core Structural Fix for Lenis */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto !important;
 }
 
