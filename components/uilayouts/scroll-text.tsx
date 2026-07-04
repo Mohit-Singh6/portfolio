@@ -52,6 +52,7 @@ const TextAnimation = ({
   letterAnime = false,
   lineAnime = false,
   highlightWords = [],
+  children,
 }: {
   text: string;
   classname?: string;
@@ -69,6 +70,7 @@ const TextAnimation = ({
   letterAnime?: boolean;
   lineAnime?: boolean;
   highlightWords?: string[];
+  children?: React.ReactNode;
 }) => {
   const baseVariants = variants || generateVariants(direction);
   const modifiedVariants = {
@@ -90,7 +92,9 @@ const TextAnimation = ({
       viewport={viewport}
       className={cn(`inline-block text-foreground uppercase`, classname)}
     >
-      {lineAnime ? (
+      {children ? (
+        children
+      ) : lineAnime ? (
         <motion.span className={`inline-block`} variants={modifiedVariants}>
           {text}
         </motion.span>

@@ -13,6 +13,7 @@ import EducationSection from '@/components/customs/educationSection';
 import Projects from '@/components/projectCards';
 import { ProjectsHeading } from '@/components/ui/projectsHeading';
 import EmailFooter from '@/components/customs/emailFooter';
+import SpaceFooter from '@/components/customs/footerSection';
 
 type Phase = 'intro' | 'expanding' | 'collapsing' | 'main';
 
@@ -109,7 +110,8 @@ export default function Home() {
           <IconCloudHeading />
           <MyTechStackGlobe />
           <EducationSection />
-          <EmailFooter />
+          {/* <EmailFooter /> */}
+          <SpaceFooter />
         </main>
       )}
     </div>
