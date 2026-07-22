@@ -22,7 +22,7 @@ export default function AboutMe() {
                         color="#00b4d8"
                     />
                 </div>
-                <p className="animate-pulse text-s font-mono tracking-[0.35em] text-zinc-500 mt-60 mr-2">
+                <p className="animate-pulse sm:text-sm text-xs font-mono tracking-[0.35em] text-zinc-500 mt-60 mr-2">
                     Click anywhere to continue.
                 </p>
             </div>

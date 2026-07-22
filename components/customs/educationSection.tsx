@@ -21,7 +21,7 @@ export default function EducationSection() {
       <div className="mx-auto flex max-w-[1400px] flex-col gap-10 min-[1150px]:gap-16 py-20 w-full lg:pr-30 lg:pl-10 md:pr-25">
 
         {/* Header Area */}
-        <div className="max-w-4xl ml-1">
+        <div className="ml-1">
           <ScrollFloat
             scrollContainerRef={null}
             containerClassName="max-w-full"
@@ -45,13 +45,13 @@ export default function EducationSection() {
           {educationItems.map((item) => (
             <article
               key={item.title}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-black/40 backdrop-blur-md p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-white/10 hover:bg-black/60 flex flex-col"
+              className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-black/40 backdrop-blur-md sm:p-8 p-4 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-white/10 hover:bg-black/60 flex flex-col min-w-[290px] sm:ml-0 ml-[-20]"
             >
               {/* Subtle Animated Top Border Glow */}
               <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-cyan-400/0 to-transparent group-hover:via-cyan-400/50 transition-all duration-700" />
 
               {/* Vertical Cyan Accent Line */}
-              <div className="absolute left-8 top-8 bottom-8 w-1 rounded-full bg-cyan-500/20 group-hover:bg-cyan-400/80 transition-colors duration-500" aria-hidden="true" />
+              <div className="absolute sm:left-8 sm:top-8 left-6 top-6 bottom-8 w-1 rounded-full bg-cyan-500/20 group-hover:bg-cyan-400/80 transition-colors duration-500" aria-hidden="true" />
 
               <div className="relative z-10 ml-8 flex flex-col h-full">
                 <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400/90">

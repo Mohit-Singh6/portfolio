@@ -126,7 +126,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const hoverScalesRef = useRef<number[]>([])
 
   const responsive = viewport === 'xs'
-    ? { CANVAS_SIZE: 350, ORBIT_RADIUS: 160, SUN_RADIUS: 35, SUN_GLOW_RADIUS: 100, ICON_SIZE: 32 }
+    ? { CANVAS_SIZE: 330, ORBIT_RADIUS: 150, SUN_RADIUS: 31, SUN_GLOW_RADIUS: 90, ICON_SIZE: 30 }
     : viewport === 'sm'
     ? { CANVAS_SIZE: 560, ORBIT_RADIUS: 210, SUN_RADIUS: 50, SUN_GLOW_RADIUS: 140, ICON_SIZE: 42 }
     : viewport === 'md'

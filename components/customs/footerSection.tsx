@@ -6,7 +6,7 @@ import { MdEmail } from 'react-icons/md';
 
 export default function SpaceFooter() {
   return (
-    <section className="w-full md:w-[87%] px-4 py-16 md:mr-19">
+    <section className="w-full md:w-[87%] sm:px-4 py-16 md:mr-19">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 sm:p-0">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
