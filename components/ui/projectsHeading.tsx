@@ -4,7 +4,7 @@ import TextAnimation from '@/components/uilayouts/scroll-text'
 export function ProjectsHeading() {
 
     return (
-        <div className='lg:mt-70 lg:mb-[-180] md:mt-55 md:mb-[-220] mt-60 mb-[-250]' id='projects'>
+        <div className='lg:mt-70 md:mt-55 mt-60 sm:mb-[-30] mb-[-60]' id='projects'>
             <div className='text-left'>
                 <TextAnimation
                     text="MY PROJECTS"

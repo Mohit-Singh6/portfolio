@@ -114,7 +114,7 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 lg:w-250 md:w-200 sm:w-160 mr-10"
+      className="flex items-center justify-center sticky top-0 md:w-[80vw] lg:mr-15 md:mr-20 w-[90vw] mt-5"
     >
       <motion.div
         style={{
@@ -123,7 +123,7 @@ export const Card: React.FC<CardProps> = ({
           backgroundColor: darkBgColor,
           borderColor: `${color}25` // Muted version of full accent color for border stroke
         }}
-        className="group/card flex flex-col md:flex-row relative h-[520px] w-full rounded-3xl p-6 md:p-12 origin-top shadow-[0_30px_100px_rgba(0,0,0,0.8)] backdrop-blur-md border overflow-hidden transition-all duration-500 hover:border-white/20"
+        className="group/card flex flex-col min-[1050px]:flex-row relative w-full min-h-[480px] min-[1050px]:min-h-[550px] rounded-3xl md:p-12 sm:p-9 p-5 origin-top shadow-[0_30px_100px_rgba(0,0,0,0.8)] backdrop-blur-md border overflow-hidden transition-all duration-500 hover:border-white/20"
       >
         {/* Subtle radial backdrop glow matching the project color */}
         <div
@@ -139,18 +139,18 @@ export const Card: React.FC<CardProps> = ({
         />
 
         {/* LEFT COLUMN: Typography and Interactive Action */}
-        <div className="flex flex-col justify-between w-full md:w-[45%] h-full z-10 pr-0 md:pr-8 pb-6 md:pb-0">
+        <div className="flex flex-col justify-between w-full min-[1050px]:w-[45%] h-full z-10 pr-0 md:pr-8 pb-6 md:pb-0">
           <div className="space-y-4">
             <span
               style={{ color: color }}
-              className="text-xs uppercase tracking-[0.3em] font-medium block font-mono"
+              className="text-[0.7rem] sm:text-xs uppercase tracking-[0.3em] font-medium block font-mono"
             >
               Project 0{i + 1}
             </span>
-            <h2 className="text-3xl md:text-4xl text-white tracking-wider  font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-white tracking-wider  font-heading">
               {title}
             </h2>
-            <div className="text-sm md:text-base text-white/60 leading-relaxed font-sans font-light max-w-sm pt-2">
+            <div className="text-[0.8rem] sm:text-sm md:text-base text-white/60 font-sans font-light pt-2">
               <ul className='list-[circle] list-inside'>
 
                 {description.map((des, idx) => {
@@ -164,7 +164,7 @@ export const Card: React.FC<CardProps> = ({
 
           <div className="pt-4">
             <a href={url || '#'}>
-              <button className="group/work relative overflow-hidden rounded-lg bg-[#00b4d8]/0 border border-white/20 px-6 py-3 text-base transition-colors cursor-pointer">
+              <button className="group/work relative overflow-hidden rounded-lg bg-[#00b4d8]/0 border border-white/20 px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base transition-colors cursor-pointer sm:mt-3 mt-1">
                 <span className="absolute bottom-0 left-[-40] h-60 w-60 origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white transition-transform duration-600 ease-out group-hover/work:translate-y-12"></span>
                 <span className="font-semibold text-white relative z-10 group-hover/work:text-[#000000] flex gap-2" >
                   See Project
@@ -176,8 +176,8 @@ export const Card: React.FC<CardProps> = ({
         </div>
 
         {/* RIGHT COLUMN: Interactive Media Stage */}
-        <div className="relative w-full md:w-[55%] h-[55%] md:h-full rounded-2xl overflow-hidden group/image flex items-center justify-center border border-white/5 bg-black/40">
-          <div className="relative w-full h-full transition-transform duration-700 ease-out group-hover/image:scale-105 group-hover/image:rotate-[0.5deg]">
+        <div className="relative w-full min-[1050px]:w-[55%] min-md:my-5 sm:rounded-2xl rounded-xl overflow-hidden group/image flex items-center justify-center border border-white/5 bg-black/40">
+          <div className="relative w-full h-64 min-[1050px]:h-full transition-transform duration-700 ease-out group-hover/image:scale-105 group-hover/image:rotate-[0.5deg]">
             <Image
               fill
               src={src || ""}
