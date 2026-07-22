@@ -18,7 +18,7 @@ const educationItems = [
 export default function EducationSection() {
   return (
     <section id="education" className="min-h-screen w-full bg-transparent text-white flex items-center">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-12 lg:gap-16   py-20 w-full pr-30 pl-10">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-12 min-[1150px]:gap-16   py-20 w-full pr-30 pl-10">
 
         {/* Header Area */}
         <div className="max-w-4xl ml-1">

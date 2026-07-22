@@ -115,6 +115,7 @@ function drawRoundedRect(
 export function IconCloud({ icons, images }: IconCloudProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [iconPositions, setIconPositions] = useState<Icon[]>([])
+  const [viewport, setViewport] = useState<'xs' | 'sm' | 'md' | 'lg'>('lg')
 
   const pointerRef = useRef({ x: 0, y: 0, isDragging: false, lastX: 0, lastY: 0 })
   const rotationRef = useRef({ x: 0, y: 0 })
@@ -124,15 +125,35 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const imagesLoadedRef = useRef<boolean[]>([])
   const hoverScalesRef = useRef<number[]>([])
 
-  const ORBIT_RADIUS = 280;
-  const SUN_RADIUS = 72;
-  const SUN_GLOW_RADIUS = 200;
-  const CANVAS_SIZE = 750;
+  const responsive = viewport === 'xs'
+    ? { CANVAS_SIZE: 350, ORBIT_RADIUS: 160, SUN_RADIUS: 35, SUN_GLOW_RADIUS: 100, ICON_SIZE: 32 }
+    : viewport === 'sm'
+    ? { CANVAS_SIZE: 560, ORBIT_RADIUS: 210, SUN_RADIUS: 50, SUN_GLOW_RADIUS: 140, ICON_SIZE: 42 }
+    : viewport === 'md'
+    ? { CANVAS_SIZE: 640, ORBIT_RADIUS: 240, SUN_RADIUS: 62, SUN_GLOW_RADIUS: 170, ICON_SIZE: 50 }
+    : { CANVAS_SIZE: 750, ORBIT_RADIUS: 280, SUN_RADIUS: 72, SUN_GLOW_RADIUS: 200, ICON_SIZE: 56 }
+
+  const { CANVAS_SIZE, ORBIT_RADIUS, SUN_RADIUS, SUN_GLOW_RADIUS, ICON_SIZE } = responsive
   const BASE_SPEED = { x: 0.0008, y: 0.0012 };
   const FRICTION = 0.985;
   const DRAG_SENSITIVITY = 0.0015;
   const HOVER_SCALE = 1.4;
   const HOVER_EASE = 0.14;
+
+  useEffect(() => {
+    const updateViewport = () => {
+      if (typeof window === 'undefined') return
+      const width = window.innerWidth
+      if (width < 550) setViewport('xs')
+      else if (width < 768) setViewport('sm')
+      else if (width < 1024) setViewport('md')
+      else setViewport('lg')
+    }
+
+    updateViewport()
+    window.addEventListener('resize', updateViewport)
+    return () => window.removeEventListener('resize', updateViewport)
+  }, [])
 
   // Generate Canvases
   useEffect(() => {
@@ -191,15 +212,15 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const phi = i * increment
 
       newIcons.push({
-        x: Math.cos(phi) * r * ORBIT_RADIUS,
-        y: y * ORBIT_RADIUS,
-        z: Math.sin(phi) * r * ORBIT_RADIUS,
+        x: Math.cos(phi) * r * responsive.ORBIT_RADIUS,
+        y: y * responsive.ORBIT_RADIUS,
+        z: Math.sin(phi) * r * responsive.ORBIT_RADIUS,
         scale: 1, opacity: 1, id: i,
       })
     }
     hoverScalesRef.current = new Array(numIcons).fill(1)
     setIconPositions(newIcons)
-  }, [icons, images])
+  }, [icons, images, responsive.ORBIT_RADIUS])
 
   // Pointer Logic (Fixed Canvas Scaling Bug)
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -288,7 +309,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           const p = projectedIcons[i];
           const dx = pointerRef.current.x - (centerX + p.rotatedX);
           const dy = pointerRef.current.y - (centerY + p.rotatedY);
-          const radius = 30 * p.scale;
+          const radius = (ICON_SIZE * 0.5) * p.scale;
 
           if (dx * dx + dy * dy < radius * radius && p.rotatedZ > -ORBIT_RADIUS / 2) {
             hoveredIndex = p.index;
@@ -322,7 +343,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           ctx.globalAlpha = p.opacity
           ctx.scale(iconRenderScale, iconRenderScale)
 
-          const iconSize = 56
+          const iconSize = responsive.ICON_SIZE
           const halfIcon = iconSize / 2
           if (icons || images) {
             if (iconCanvasesRef.current[p.index] && imagesLoadedRef.current[p.index]) {
@@ -441,8 +462,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   return (
     <canvas id='skills'
       ref={canvasRef}
-      width={CANVAS_SIZE}
-      height={CANVAS_SIZE}
+      width={responsive.CANVAS_SIZE}
+      height={responsive.CANVAS_SIZE}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
