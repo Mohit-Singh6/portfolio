@@ -186,6 +186,8 @@ export default function BlackHole({ size = 560 }) {
     };
   }, [responsiveSize]);
 
+  const leftOffset = responsiveSize < 350 ? -150 : (responsiveSize < 400 ? -100 : responsiveSize < 500 ? -60 : 0);
+
   return (
     <div
       aria-hidden="true"
@@ -195,7 +197,7 @@ export default function BlackHole({ size = 560 }) {
         left: "50%",
         width: responsiveSize,
         height: responsiveSize / 2, // clip box: only the lower half is visible
-        transform: "translateX(-50%)",
+        transform: `translateX(calc(-50% + ${leftOffset}px))`,
         overflow: "hidden",
         pointerEvents: "none",
         zIndex: 40,

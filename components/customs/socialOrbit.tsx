@@ -52,6 +52,7 @@ export function SocialOrbit() {
       ? baseRadius * 0.82
       : baseRadius;
   const iconSize = viewport === 'sm' ? 20 : viewport === 'md' ? 22 : 24;
+  const leftOffset = viewport === 'sm' ? -150 : viewport === 'md' ? -55 : 0;
 
   const icons = [
     {
@@ -89,7 +90,7 @@ export function SocialOrbit() {
         .social-orbit-anchor {
           position: absolute;
           top: ${orbitCenterY}px;
-          left: 50%;
+          left: calc(50% + ${leftOffset}px);
           width: 0;
           height: 0;
           pointer-events: none;
