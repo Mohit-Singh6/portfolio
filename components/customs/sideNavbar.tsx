@@ -33,11 +33,11 @@ export default function RightSidebarNav() {
   };
 
   return (
-    <div className="fixed right-0 top-0 h-screen w-[260px] sm:w-[300px] md:w-[340px] lg:w-[450px] flex justify-end items-center bg-transparent z-50 pointer-events-none select-none font-sans">
+    <div className="fixed right-0 top-0 hidden h-screen w-[260px] md:flex md:w-[340px] lg:w-[450px] justify-end items-center bg-transparent z-50 pointer-events-none select-none font-sans">
 
       {/* Sidebar Navigation Rail Container */}
       <nav
-        className="h-fit flex flex-col justify-center pr-3 sm:pr-4 md:pr-5 lg:pr-6 pointer-events-auto gap-1"
+        className="h-fit flex flex-col justify-center pr-3 md:pr-5 lg:pr-6 pointer-events-auto gap-1"
         onMouseEnter={() => setIsNavHovered(true)}
         onMouseLeave={() => {
           setIsNavHovered(false);

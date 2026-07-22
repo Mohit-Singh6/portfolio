@@ -5,7 +5,7 @@ import { Download } from "lucide-react"
 
 export default function MohitSinghInit() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] w-full px-4 sm:px-8 py-12 text-center lg:mr-200 md:mr-150 mt-37">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] w-full px-4 sm:px-8 py-12 text-center lg:mr-[59vw] md:mr-[59vw] mt-35">
       
       {/* Title Block */}
       <div className="flex flex-col items-center justify-center w-full max-w-4xl ml-0">

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 /**
  * BlackHole
@@ -15,6 +15,26 @@ import React, { useRef, useEffect } from "react";
 export default function BlackHole({ size = 560 }) {
   const canvasRef = useRef(null);
   const rafRef = useRef(0);
+  const [responsiveSize, setResponsiveSize] = useState(size);
+
+  useEffect(() => {
+    const updateResponsiveSize = () => {
+      if (typeof window === "undefined") return;
+
+      if (window.innerWidth < 768) {
+        setResponsiveSize(Math.round(size * 0.61));
+      } else if (window.innerWidth < 1024) {
+        setResponsiveSize(Math.round(size * 0.80));
+      } else {
+        setResponsiveSize(size);
+      }
+    };
+
+    updateResponsiveSize();
+    window.addEventListener("resize", updateResponsiveSize);
+
+    return () => window.removeEventListener("resize", updateResponsiveSize);
+  }, [size]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -22,24 +42,24 @@ export default function BlackHole({ size = 560 }) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
-      canvas.width = size * dpr;
-      canvas.height = size * dpr;
-      canvas.style.width = size + "px";
-      canvas.style.height = size + "px";
+      canvas.width = responsiveSize * dpr;
+      canvas.height = responsiveSize * dpr;
+      canvas.style.width = responsiveSize + "px";
+      canvas.style.height = responsiveSize + "px";
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
 
-    const cx = size / 2;
-    const cy = size / 2;
-    const horizonR = size * 0.17;
+    const cx = responsiveSize / 2;
+    const cy = responsiveSize / 2;
+    const horizonR = responsiveSize * 0.17;
 
     // Precompute a field of particles orbiting the hole at varying radii,
     // speeds (Keplerian-ish: closer = faster), and inclinations so the
     // disk reads as a warped ellipse rather than a flat ring.
     const N = 260;
     const particles = Array.from({ length: N }, () => {
-      const r = horizonR * 1.35 + Math.random() * size * 0.42;
+      const r = horizonR * 1.35 + Math.random() * responsiveSize * 0.42;
       const angle = Math.random() * Math.PI * 2;
       // base orbital speed (closer = faster). apply a global dampening
       // factor so the whole disk rotates more slowly by default.
@@ -56,17 +76,17 @@ export default function BlackHole({ size = 560 }) {
       if (!mounted) return;
       t += 1;
       const time = t * 0.016;
-      ctx.clearRect(0, 0, size, size);
+      ctx.clearRect(0, 0, responsiveSize, responsiveSize);
 
       // ---- outer ambient glow (soft white bloom, gently breathing) ----
       const breathe = 0.85;
-      const ambient = ctx.createRadialGradient(cx, cy, horizonR * 0.7, cx, cy, size * 0.62 * breathe);
+      const ambient = ctx.createRadialGradient(cx, cy, horizonR * 0.7, cx, cy, responsiveSize * 0.62 * breathe);
       // reduce ambient intensity so the dome blends into the page
       ambient.addColorStop(0, "rgba(255,255,255,0.12)");
       ambient.addColorStop(0.35, "rgba(235,240,255,0.05)");
       ambient.addColorStop(1, "rgba(255,255,255,0)");
       ctx.fillStyle = ambient;
-      ctx.fillRect(0, 0, size, size);
+      ctx.fillRect(0, 0, responsiveSize, responsiveSize);
 
       // ---- back half of disk (behind the hole, dimmer) ----
       drawDiskParticles(true);
@@ -79,7 +99,7 @@ export default function BlackHole({ size = 560 }) {
       lensGrad.addColorStop(1, "rgba(255,255,255,0)");
       ctx.save();
       ctx.strokeStyle = lensGrad;
-      ctx.lineWidth = size * 0.018;
+      ctx.lineWidth = responsiveSize * 0.018;
       ctx.lineCap = "round";
       ctx.beginPath();
       ctx.ellipse(cx, cy, lensR, lensR * 0.34, 0, Math.PI * 1.02, Math.PI * 1.98);
@@ -104,9 +124,9 @@ export default function BlackHole({ size = 560 }) {
         const baseR = horizonR * 1.1;
         // softened rim layers for better blending with the page
         const layers = [
-          { amp: horizonR * 0.05, freq: 7, speed: 1.3, width: size * 0.05, alpha: 0.22, blur: 20 },
-          { amp: horizonR * 0.035, freq: 11, speed: -1.8, width: size * 0.03, alpha: 0.32, blur: 12 },
-          { amp: horizonR * 0.02, freq: 17, speed: 2.4, width: size * 0.014, alpha: 0.45, blur: 5 },
+          { amp: horizonR * 0.05, freq: 7, speed: 1.3, width: responsiveSize * 0.05, alpha: 0.22, blur: 20 },
+          { amp: horizonR * 0.035, freq: 11, speed: -1.8, width: responsiveSize * 0.03, alpha: 0.32, blur: 12 },
+          { amp: horizonR * 0.02, freq: 17, speed: 2.4, width: responsiveSize * 0.014, alpha: 0.45, blur: 5 },
         ];
 
         for (const layer of layers) {
@@ -164,7 +184,7 @@ export default function BlackHole({ size = 560 }) {
       mounted = false;
       cancelAnimationFrame(rafRef.current);
     };
-  }, [size]);
+  }, [responsiveSize]);
 
   return (
     <div
@@ -173,8 +193,8 @@ export default function BlackHole({ size = 560 }) {
         position: "absolute",
         top: 0,
         left: "50%",
-        width: size,
-        height: size / 2, // clip box: only the lower half is visible
+        width: responsiveSize,
+        height: responsiveSize / 2, // clip box: only the lower half is visible
         transform: "translateX(-50%)",
         overflow: "hidden",
         pointerEvents: "none",
@@ -189,7 +209,7 @@ export default function BlackHole({ size = 560 }) {
           position: "absolute",
           // Flip in Y: the dome now bulges upward, poking out above the
           // page, with the cut edge sitting along the bottom of the strip.
-          top: -size / 2,
+          top: -responsiveSize / 2,
           left: 0,
           transform: "scaleY(-1)",
           // mask the top so the dome fades smoothly into the page background

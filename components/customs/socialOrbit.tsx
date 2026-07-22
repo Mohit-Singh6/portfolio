@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Mail } from 'lucide-react';
 
@@ -18,38 +19,63 @@ import { Mail } from 'lucide-react';
  * look the user wants.
  */
 
-const ICONS = [
-  {
-    key: 'github',
-    href: 'https://github.com/Mohit-Singh6',
-    icon: <FaGithub size={26} color="white" />,
-    borderHover: 'hover:border-white',
-    delay: '0s',
-  },
-  {
-    key: 'linkedin',
-    href: 'https://www.linkedin.com/in/mohit-singh-s985/',
-    icon: <FaLinkedin size={26} color="#0077b5" />,
-    borderHover: 'hover:border-[#0077b5]',
-    delay: '-8.33s', // 1/3 of 25 s
-  },
-  {
-    key: 'mail',
-    href: 'mailto:mohitssr11@gmail.com',
-    icon: <Mail size={26} color="#d44638" />,
-    borderHover: 'hover:border-[#d44638]',
-    delay: '-16.67s', // 2/3 of 25 s
-  },
-];
-
 export function SocialOrbit() {
+  const [viewport, setViewport] = useState<'sm' | 'md' | 'lg'>('lg');
   // The black hole canvas is 560×560 but its container is clipped to
   // the top half (height: 280 px) with the canvas offset at top: -280 px.
   // This means the canvas's geometric centre (cy = 280) sits exactly
   // at viewport y = 0 — the very top edge of the screen.
+  useEffect(() => {
+    const updateViewport = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setViewport('sm');
+      } else if (width < 1024) {
+        setViewport('md');
+      } else {
+        setViewport('lg');
+      }
+    };
+
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+
+    return () => window.removeEventListener('resize', updateViewport);
+  }, []);
+
   const orbitCenterY = 0;  // px from top of viewport
-  const radius = 180;      // orbit radius in px
+  const baseRadius = 180;      // orbit radius in px
   const duration = 10;     // seconds per revolution
+  const radius = viewport === 'sm'
+    ? baseRadius * 0.68
+    : viewport === 'md'
+      ? baseRadius * 0.82
+      : baseRadius;
+  const iconSize = viewport === 'sm' ? 20 : viewport === 'md' ? 22 : 24;
+
+  const icons = [
+    {
+      key: 'github',
+      href: 'https://github.com/Mohit-Singh6',
+      icon: <FaGithub size={iconSize} color="white" />,
+      borderHover: 'hover:border-white',
+      delay: '0s',
+    },
+    {
+      key: 'linkedin',
+      href: 'https://www.linkedin.com/in/mohit-singh-s985/',
+      icon: <FaLinkedin size={iconSize} color="#0077b5" />,
+      borderHover: 'hover:border-[#0077b5]',
+      delay: '-8.33s', // 1/3 of 25 s
+    },
+    {
+      key: 'mail',
+      href: 'mailto:mohitssr11@gmail.com',
+      icon: <Mail size={iconSize} color="#d44638" />,
+      borderHover: 'hover:border-[#d44638]',
+      delay: '-16.67s', // 2/3 of 25 s
+    },
+  ];
 
   return (
     <div>
@@ -74,12 +100,30 @@ export function SocialOrbit() {
           position: absolute;
           top: 0;
           left: 0;
-          width: 52px;
-          height: 52px;
-          margin-left: -26px;
-          margin-top: -26px;
+          width: 44px;
+          height: 44px;
+          margin-left: -22px;
+          margin-top: -22px;
           animation: socialOrbit ${duration}s linear infinite;
           pointer-events: auto;
+        }
+
+        @media (min-width: 768px) {
+          .social-orbit-item {
+            width: 48px;
+            height: 48px;
+            margin-left: -24px;
+            margin-top: -24px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .social-orbit-item {
+            width: 52px;
+            height: 52px;
+            margin-left: -26px;
+            margin-top: -26px;
+          }
         }
 
         .social-orbit-item:nth-child(2) {
@@ -108,7 +152,7 @@ export function SocialOrbit() {
       `}</style>
 
       <div className="social-orbit-anchor ml-80" aria-hidden="false">
-        {ICONS.map(({ key, href, icon }) => (
+        {icons.map(({ key, href, icon }) => (
           <div key={key} className="social-orbit-item">
             <a
               href={href}
