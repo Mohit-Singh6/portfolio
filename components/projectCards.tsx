@@ -114,7 +114,7 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={container}
-      className="flex items-center justify-center sticky top-0 md:w-[80vw] lg:mr-15 md:mr-20 w-[90vw] mt-5"
+      className="flex items-center justify-center sticky top-0 md:w-[80vw] lg:mr-15 md:mr-20 w-[90vw] mb-15"
     >
       <motion.div
         style={{
