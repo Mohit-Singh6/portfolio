@@ -33,11 +33,11 @@ export default function RightSidebarNav() {
   };
 
   return (
-    <div className="fixed right-0 top-0 h-screen w-[450px] flex justify-end items-center bg-transparent z-50 pointer-events-none select-none font-sans">
+    <div className="fixed right-0 top-0 h-screen w-[260px] sm:w-[300px] md:w-[340px] lg:w-[450px] flex justify-end items-center bg-transparent z-50 pointer-events-none select-none font-sans">
 
       {/* Sidebar Navigation Rail Container */}
       <nav
-        className="h-fit flex flex-col justify-center pr-6 pointer-events-auto gap-1"
+        className="h-fit flex flex-col justify-center pr-3 sm:pr-4 md:pr-5 lg:pr-6 pointer-events-auto gap-1"
         onMouseEnter={() => setIsNavHovered(true)}
         onMouseLeave={() => {
           setIsNavHovered(false);
@@ -64,11 +64,11 @@ export default function RightSidebarNav() {
                   const isAnchorLine = localIdx === item.anchorLineIdx;
 
                   let inlineStyle: React.CSSProperties = {};
-                  let widthClass = "w-6 bg-zinc-700";
+                  let widthClass = "w-4 sm:w-5 md:w-6 bg-zinc-700";
 
                   if (isAnchorLine) {
                     if (isNavHovered) {
-                      widthClass = "w-40";
+                      widthClass = "w-20 sm:w-24 md:w-32 lg:w-40";
                       if (isThisSectionHovered) {
                         inlineStyle = {
                           backgroundColor: deepSeaBlue,
@@ -82,14 +82,14 @@ export default function RightSidebarNav() {
                     if (hoveredGlobalLineIdx !== null) {
                       const distance = Math.abs(currentGlobalIdx - hoveredGlobalLineIdx);
 
-                      if (distance === 0) widthClass = "w-22 bg-zinc-300";
-                      else if (distance === 1) widthClass = "w-18 bg-zinc-400";
-                      else if (distance === 2) widthClass = "w-12 bg-zinc-500";
-                      else if (distance === 3) widthClass = "w-8 bg-zinc-500";
-                      else if (distance === 4) widthClass = "w-4 bg-zinc-600";
-                      else if (distance === 5) widthClass = "w-2 bg-zinc-600";
+                      if (distance === 0) widthClass = "w-12 sm:w-14 md:w-14 lg:w-22 bg-zinc-300";
+                      else if (distance === 1) widthClass = "w-10 sm:w-12 md:w-12 lg:w-18 bg-zinc-400";
+                      else if (distance === 2) widthClass = "w-8 sm:w-9 md:w-8 lg:w-12 bg-zinc-500";
+                      else if (distance === 3) widthClass = "w-6 sm:w-7 md:w-6 lg:w-8 bg-zinc-500";
+                      else if (distance === 4) widthClass = "w-4 sm:w-4 md:w-4 lg:w-4 bg-zinc-600";
+                      else if (distance === 5) widthClass = "w-2 sm:w-2 md:w-2 lg:w-2 bg-zinc-600";
                     } else if (isNavHovered) {
-                      widthClass = "w-2 bg-zinc-600";
+                      widthClass = "w-2 sm:w-2 md:w-2 lg:w-2 bg-zinc-600";
                     }
                   }
 
@@ -97,7 +97,7 @@ export default function RightSidebarNav() {
                     // Added "relative" here so the absolute text positions perfectly underneath it
                     <div
                       key={localIdx}
-                      className="h-2 w-40 flex items-center justify-end bg-transparent group/row relative"
+                      className="h-2 w-24 sm:w-28 md:w-32 lg:w-40 flex items-center justify-end bg-transparent group/row relative"
                       onMouseEnter={(e) => {
                         e.stopPropagation();
                         setHoveredGlobalLineIdx(currentGlobalIdx);
@@ -112,13 +112,13 @@ export default function RightSidebarNav() {
                       {/* Text Label - Now completely absolute! It floats without pushing components down */}
                       {isAnchorLine && (
                         <div
-                          style={{ width: "192px" }}
-                          className={`absolute left-0 top-3 transition-all duration-300 ease-out pointer-events-none ${isNavHovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+                          style={{ width: "min(40vw, 192px)" }}
+                          className={`absolute left-0 top-2 sm:top-2.5 md:top-3 transition-all duration-300 ease-out pointer-events-none ${isNavHovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
                             }`}
                         >
                           <span
                             style={{ color: isThisSectionHovered ? deepSeaBlue : "#a1a1aa" }}
-                            className="text-[11px] font-black tracking-[0.25em] text-left uppercase transition-colors duration-300 block"
+                            className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] font-black tracking-[0.2em] sm:tracking-[0.25em] text-left uppercase transition-colors duration-300 block"
                           >
                             {item.label}
                           </span>
