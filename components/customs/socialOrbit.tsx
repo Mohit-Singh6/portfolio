@@ -46,11 +46,7 @@ export function SocialOrbit() {
   const orbitCenterY = 0;  // px from top of viewport
   const baseRadius = 180;      // orbit radius in px
   const duration = 10;     // seconds per revolution
-  const radius = viewport === 'sm'
-    ? baseRadius * 0.68
-    : viewport === 'md'
-      ? baseRadius * 0.82
-      : baseRadius;
+  const radius = viewport === 'sm' || viewport === 'md' ? baseRadius * 0.82 : baseRadius;
   const iconSize = viewport === 'sm' ? 20 : viewport === 'md' ? 22 : 24;
   const leftOffset = viewport === 'sm' ? -150 : viewport === 'md' ? -55 : 0;
 

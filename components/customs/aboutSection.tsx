@@ -5,7 +5,7 @@ import React from 'react';
 function AboutSection() {
     return (
         <section className='min-h-screen w-full bg-transparent text-white'>
-            <div className='mx-auto flex max-w-[1400px] flex-col gap-16 pl-[5rem] pr-[8rem] py-20'>
+            <div className='mx-auto flex max-w-[1400px] flex-col gap-16 lg:pl-[6vw] md:pl-[6vw] sm:pl-[6vw] pl-[2vw] md:pr-[8rem] md:py-20'>
                 <div className='max-w-6xl mt-50' id='aboutme'>
                     <TextAnimation
                         text='I believe in engineering systems that prioritize flawless architecture over superficial design, turning complex algorithmic logic into highly reliable, automated solutions.'
@@ -18,7 +18,7 @@ function AboutSection() {
                                 transition: { ease: 'linear' },
                             },
                         }}
-                        classname='text-[3.2rem] md:text-[3.8rem] xl:text-[3rem] leading-[0.98] text-left text-white max-w-6xl normal-case'
+                        classname='text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] xl:text-[3rem] leading-[0.98] text-left text-white max-w-6xl normal-case'
                     />
                 </div>
 
@@ -26,7 +26,7 @@ function AboutSection() {
                     <span className='text-sm uppercase tracking-[0.3em] text-slate-400'>This is me.</span>
                 </div>
 
-                <div className='grid gap-10 lg:grid-cols-[minmax(18rem,45%)_minmax(28rem,1fr)] items-start'>
+                <div className='grid gap-8 lg:gap-12 xl:grid-cols-[minmax(21rem,44%)_1fr] items-start'>
                     <div className='text-left'>
                         <TextAnimation
                             text="MAKING COMPUTERS DO THINGS."
@@ -41,7 +41,7 @@ function AboutSection() {
                                     transition: { ease: 'linear' },
                                 },
                             }}
-                            classname='text-[3.5rem] md:text-[4.2rem] font-bold leading-[0.95] tracking-tight text-white'
+                            classname='text-[2rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4.2rem] font-bold leading-[0.95] tracking-tight text-white w-full'
                         />
                     </div>
 
@@ -51,14 +51,14 @@ function AboutSection() {
                             direction='right'
                             highlightWords={['Full-Stack', 'Developer', 'Information', 'Technology', 'NIT', 'Jalandhar']}
 
-                            classname='text-xl md:text-2xl font-medium leading-8 text-slate-300 normal-case'
+                            classname='text-lg sm:text-xl md:text-[1.3rem] lg:text-2xl font-medium leading-snug text-slate-300 normal-case'
                         />
                         <TextAnimation
                             text="When I'm not in my IDE, you'll find me scrambling in my sketchbook or being lost in a good book."
                             direction='right'
                             highlightWords={[]}
 
-                            classname='text-lg md:text-xl font-light leading-8 text-slate-400 normal-case'
+                            classname='text-lg md:text-xl font-light leading-tight text-slate-400 normal-case'
                         />
                     </div>
                 </div>

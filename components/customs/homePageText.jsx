@@ -11,7 +11,7 @@ export default function MohitSinghInit() {
             <div className="flex flex-col items-center justify-center w-full max-w-4xl sm:ml-0 ml-12">
                 <SplitText
                     text="MOHIT"
-                    className="font-heading text-3xl sm:text-3xl md:text-5xl lg:text-6xl text-white text-center leading-tight lg:h-20 md:h-16 sm:h-11 h-10"
+                    className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center leading-tight lg:h-20 md:h-16 sm:h-12 h-10"
                     delay={50}
                     duration={1.25}
                     ease="power3.out"
@@ -24,7 +24,7 @@ export default function MohitSinghInit() {
                 />
                 <SplitText
                     text="SINGH"
-                    className="font-heading text-3xl sm:text-3xl md:text-5xl lg:text-6xl text-center leading-tight lg:ml-23 md:ml-20 sm:ml-13 ml-8 lg:h-22 md:h-16 h-10"
+                    className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center leading-tight lg:ml-23 md:ml-20 sm:ml-13 ml-8 lg:h-22 md:h-16 sm:h-12 h-10"
                     delay={50}
                     duration={1.25}
                     ease="power3.out"
@@ -39,10 +39,10 @@ export default function MohitSinghInit() {
             </div>
 
             {/* Description Block */}
-            <div className="w-full lg:max-w-2xl md:max-w-[35rem] sm:max-w-[23rem] max-w-[18rem] lg:mt-8 md:mt-7 sm:mt-5 mt-4 flex flex-col gap-1 text-center text-left lg:ml-110 md:ml-96 sm:ml-63 ml-33">
+            <div className="w-full lg:max-w-2xl md:max-w-[35rem] sm:max-w-[25rem] max-w-[18rem] lg:mt-8 md:mt-7 sm:mt-5 mt-4 flex flex-col gap-1 text-center text-left lg:ml-110 md:ml-96 sm:ml-63 ml-33">
                 <SplitText
                     text="Information Technology @ NIT Jalandhar"
-                    className="md:text-[0.9rem] font-semibold sm:text-[0.8rem] text-[0.6rem] lg:text-[1rem]"
+                    className="md:text-[0.9rem] font-semibold sm:text-[1rem] text-[0.6rem] lg:text-[1rem]"
                     delay={30}
                     duration={0.25}
                     ease="power3.out"
@@ -56,7 +56,7 @@ export default function MohitSinghInit() {
                 />
                 <SplitText
                     text="A Full-Stack Developer dedicated to building high-performance, scalable, and reliable web applications. Specializing in Next.js and the MERN stack to turn complex algorithmic logic into robust solutions that just work."
-                    className="text-base md:text-[1.1rem] font-semibold leading-snug tracking-wide sm:text-[0.9rem] text-[0.75rem] lg:text-[1.2rem]"
+                    className="text-base md:text-[1.1rem] font-semibold leading-snug tracking-wide sm:text-[1.1rem] text-[0.75rem] lg:text-[1.2rem]"
                     delay={30}
                     duration={0.25}
                     ease="power3.out"
