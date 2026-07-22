@@ -18,7 +18,7 @@ const educationItems = [
 export default function EducationSection() {
   return (
     <section id="education" className="min-h-screen w-full bg-transparent text-white flex items-center">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-12 min-[1150px]:gap-16   py-20 w-full pr-30 pl-10">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-10 min-[1150px]:gap-16 py-20 w-full lg:pr-30 lg:pl-10 md:pr-25">
 
         {/* Header Area */}
         <div className="max-w-4xl ml-1">
@@ -41,7 +41,7 @@ export default function EducationSection() {
         </div>
 
         {/* Education Cards Grid */}
-        <div className="grid gap-6 lg:gap-8 md:grid-cols-2 sm:grid-cols-1">
+        <div className="grid gap-6 lg:gap-8 min-[860px]:grid-cols-2 max-[860px]:grid-cols-1">
           {educationItems.map((item) => (
             <article
               key={item.title}
@@ -59,11 +59,11 @@ export default function EducationSection() {
                 </span>
 
                 {/* Replaced 'leading-tight' with 'leading-snug' to fix the squished text */}
-                <h3 className="mt-4 text-[1.75rem] md:text-[2rem] lg:text-[2rem] font-heading leading-normal text-[#efefef]">
+                <h3 className="mt-4 text-[1.5rem] md:text-[2rem] lg:text-[2rem] font-heading leading-normal text-[#efefef]">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-base text-slate-400 font-medium">
+                <p className="mt-3 text-[0.9rem] md:text-base text-slate-400 font-medium">
                   {item.institution}
                 </p>
 

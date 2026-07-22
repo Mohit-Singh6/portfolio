@@ -6,7 +6,7 @@ import { MdEmail } from 'react-icons/md';
 
 export default function SpaceFooter() {
   return (
-    <section className="w-[87%] px-4 py-16 mr-19">
+    <section className="w-full md:w-[87%] px-4 py-16 md:mr-19">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 sm:p-0">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
@@ -22,7 +22,7 @@ export default function SpaceFooter() {
                     transition: { duration: 0.5, ease: 'easeOut' },
                   },
                 }}
-                classname="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl"
+                classname="text-[1.4rem] font-semibold leading-tight text-white sm:text-4xl lg:text-5xl"
               />
 
               <TextAnimation
@@ -40,7 +40,7 @@ export default function SpaceFooter() {
                 classname="w-full sm:w-auto"
               >
                 <a href="mailto:mohitssr11@gmail.com" className="w-full sm:w-auto">
-                  <button className="group/work relative overflow-hidden rounded-full border border-zinc-700/80 bg-transparent px-8 py-3 text-base transition-all duration-300 hover:border-white/25 hover:shadow-[2px_2px_10px_rgba(255,255,255,0.08)] cursor-pointer">
+                  <button className="group/work relative overflow-hidden rounded-full border border-zinc-700/80 bg-transparent sm:px-8 px-4 sm:py-3 py-2 md:text-base text-sm transition-all duration-300 hover:border-white/25 hover:shadow-[2px_2px_10px_rgba(255,255,255,0.08)] cursor-pointer">
                     <span className="absolute bottom-0 left-[-50] h-48 w-65 origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white transition-transform duration-600 ease-out group-hover/work:translate-y-12"></span>
                     <span className="font-semibold text-white relative z-10 group-hover/work:text-[#000000] flex items-center gap-2">
                       <MdEmail className="h-5 w-5 shrink-0" />
@@ -64,16 +64,16 @@ export default function SpaceFooter() {
                   transition: { duration: 0.5, delay: 0.2, ease: 'easeOut' },
                 },
               }}
-              classname="flex flex-col items-end gap-5 text-right"
+              classname="flex flex-col items-end sm:gap-5 gap-3 text-right"
             >
-              <span className="text-sm uppercase tracking-[0.3em] text-white/60">Socials</span>
-              <div className="flex items-center gap-4">
+              <span className="text-[0.8rem] sm:text-sm uppercase tracking-[0.3em] text-white/60">Socials</span>
+              <div className="flex items-center sm:gap-4 gap-2">
                 <a
                   href="https://github.com/Mohit-Singh6"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="GitHub"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700/80 bg-transparent text-slate-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/5 hover:text-white"
+                  className="inline-flex sm:h-11 sm:w-11 h-9 w-9 items-center justify-center rounded-full border border-zinc-700/80 bg-transparent text-slate-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/5 hover:text-white"
                 >
                   <FaGithub className="h-5 w-5" />
                 </a>
@@ -83,7 +83,7 @@ export default function SpaceFooter() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-700/80 bg-transparent text-slate-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/5 hover:text-white"
+                  className="inline-flex sm:h-11 sm:w-11 h-9 w-9 items-center justify-center rounded-full border border-zinc-700/80 bg-transparent text-slate-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/5 hover:text-white"
                 >
                   <FaLinkedin className="h-5 w-5" />
                 </a>
